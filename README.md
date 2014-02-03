@@ -24,7 +24,7 @@ NSObject *server = [[NSObject alloc] init];
 }];
 
 [server once:@"connection" listener:^(id stream) {
-	NSLog(		@"Ah, we have our first user!");
+	NSLog(@"Ah, we have our first user!");
 }];
 ```
 
