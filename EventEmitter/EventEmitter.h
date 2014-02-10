@@ -20,6 +20,8 @@
 
 - (void)removeAllListeners:(NSString *)event;
 
+- (void)removeAllListeners;
+
 - (void)emit:(NSString *)event, ...;
 
 @end

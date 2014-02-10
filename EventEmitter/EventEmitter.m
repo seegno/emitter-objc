@@ -66,6 +66,13 @@
     }
 }
 
+- (void)removeAllListeners
+{
+    for (NSString *event in self.eventListeners) {
+        [self removeAllListeners:event];
+    }
+}
+
 - (void)emit:(NSString *)event, ...
 {
     va_list args;

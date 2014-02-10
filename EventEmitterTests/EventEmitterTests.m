@@ -87,7 +87,7 @@ describe(@"emit:", ^{
         [emitter emit:@"key"];
     });
     
-    it(@"removes all listeners", ^{
+    it(@"removes all listeners for an event", ^{
         id listener = ^{
             XCTFail(@"listener should not fire");
         };
@@ -95,6 +95,19 @@ describe(@"emit:", ^{
         [emitter on:@"key" listener:listener];
         
         [emitter removeAllListeners:@"key"];
+        
+        [emitter emit:@"key"];
+    });
+
+    
+    it(@"removes all listeners", ^{
+        id listener = ^{
+            XCTFail(@"listener should not fire");
+        };
+        
+        [emitter on:@"key" listener:listener];
+        
+        [emitter removeAllListeners];
         
         [emitter emit:@"key"];
     });
