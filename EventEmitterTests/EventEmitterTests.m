@@ -52,15 +52,22 @@ describe(@"emit:", ^{
     });
     
     it(@"notifies listener with one parameter", ^AsyncBlock {
+        NSArray *param1 = @[@"one", @"two"];
+
         [emitter on:@"key" listener:^(NSArray *value) {
+            expect(value).to.equal(param1);
+
             done();
         }];
         
-        [emitter emit:@"key", @[@"one", @"two"]];
+        [emitter emit:@"key", param1];
     });
     
     it(@"notifies listener with two parameters", ^AsyncBlock {
         [emitter on:@"key" listener:^(BOOL param1, NSString *param2) {
+            expect(param1).to.equal(YES);
+            expect(param2).to.equal(@"two");
+
             done();
         }];
         
