@@ -93,11 +93,15 @@
         // The first argument in a block is a pointer to the block structure, so we start from 1
         for (int i = 1; i < signature.numberOfArguments; i++) {
             const char *type = [signature getArgumentTypeAtIndex:i];
-            void *arg;
+            void *arg = nil;
             
             // Support objects and primitive types as arguments
             if (type[0] == @encode(id)[0]) {
-                arg = (__bridge void *)((id)va_arg(args, id));
+                id val = ((id)va_arg(args, id));
+
+                if (! [val isKindOfClass:NSClassFromString(@"__NSMallocBlock__")]) {
+                    arg = (__bridge void *)val;
+                }
             }
             else if (type[0] == @encode(char *)[0]) {
                 arg = va_arg(args, char *);
@@ -105,7 +109,7 @@
             else {
                 arg = va_arg(args, int);
             }
-            
+
             [invocation setArgument:&arg atIndex:i - 1];
         }
         

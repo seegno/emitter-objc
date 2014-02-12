@@ -68,10 +68,20 @@ describe(@"emit:", ^{
     });
     
     it(@"notifies listener and ignores extra parameters", ^AsyncBlock {
-        [emitter on:@"key" listener:^(id param1, BOOL param2){
+        [emitter on:@"key" listener:^(int param1, BOOL param2){
             done();
         }];
         
+        [emitter emit:@"key"];
+    });
+
+    it(@"notifies listener and sets extra object parameters to nil", ^AsyncBlock {
+        [emitter on:@"key" listener:^(id param1, BOOL param2){
+            expect(param1).to.beNil();
+
+            done();
+        }];
+
         [emitter emit:@"key"];
     });
     
