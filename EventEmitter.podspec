@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "EventEmitter"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "An event emitter implementation for Objective-C with dynamic block invocation based on the node.js EventEmitter API."
   s.homepage     = "https://github.com/seegno/EventEmitter"
   s.author       = "Nuno Sousa"
