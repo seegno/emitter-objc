@@ -97,10 +97,12 @@
             
             // Support objects and primitive types as arguments
             if (type[0] == @encode(id)[0]) {
-                id val = ((id)va_arg(args, id));
+                arg = va_arg(args, void *);
 
-                if (! [val isKindOfClass:NSClassFromString(@"__NSMallocBlock__")]) {
-                    arg = (__bridge void *)val;
+                Class cls = object_getClass((__bridge NSObject *)arg);
+
+                if (!cls || cls == NSClassFromString(@"__NSMallocBlock__")) {
+                    arg = nil;
                 }
             }
             else if (type[0] == @encode(char *)[0]) {

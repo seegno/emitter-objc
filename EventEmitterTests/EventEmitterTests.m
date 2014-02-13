@@ -74,6 +74,26 @@ describe(@"emit:", ^{
         [emitter emit:@"key", YES, @"two"];
     });
     
+    it(@"notifies listener with two parameters multiple times", ^AsyncBlock {
+        NSString *param = @"example-parameter";
+
+        __block int times = 0;
+        __block int expected = 1000;
+
+        [emitter on:@"key" listener:^(NSString *value, int i) {
+            expect(value).to.equal(param);
+            expect(i).to.equal(times);
+
+            if (++times == expected) {
+                done();
+            };
+        }];
+
+        for(int i=0; i < expected; i++) {
+            [emitter emit:@"key", param, i];
+        }
+    });
+    
     it(@"notifies listener and ignores extra parameters", ^AsyncBlock {
         [emitter on:@"key" listener:^(int param1, BOOL param2){
             done();
