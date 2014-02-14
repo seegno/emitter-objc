@@ -19,13 +19,13 @@
     @synchronized(self)
     {
         NSMutableDictionary *_eventListeners = objc_getAssociatedObject(self, @"eventListeners");
-        
+
         if (!_eventListeners) {
             _eventListeners = [[NSMutableDictionary alloc] init];
-            
+
             objc_setAssociatedObject(self, @"eventListeners", _eventListeners, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         }
-        
+
         return _eventListeners;
     }
 }
@@ -35,7 +35,7 @@
     if (!self.eventListeners[event]) {
         self.eventListeners[event] = [[NSMutableDictionary alloc] init];
     }
-    
+
     self.eventListeners[event][listener] = @(once);
 }
 
@@ -77,47 +77,59 @@
 {
     va_list args;
     va_start(args, event);
-    
+
     [self emit:event args:args];
-    
+
     va_end(args);
 }
 
 - (void)emit:(NSString *)event args:(va_list)args
 {
+    NSMutableDictionary *arguments = [[NSMutableDictionary alloc] init];
+
     // Emit event for all registered listeners
     for (id listener in self.eventListeners[event]) {
         NSMethodSignature *signature = [[[SLBlockDescription alloc] initWithBlock:listener] blockSignature];
         A2BlockInvocation *invocation = [[A2BlockInvocation alloc] initWithBlock:listener methodSignature:signature];
-        
+
         // The first argument in a block is a pointer to the block structure, so we start from 1
         for (int i = 1; i < signature.numberOfArguments; i++) {
             const char *type = [signature getArgumentTypeAtIndex:i];
-            void *arg = nil;
-            
-            // Support objects and primitive types as arguments
-            if (type[0] == @encode(id)[0]) {
-                arg = va_arg(args, void *);
+            void *arg = [arguments[@(i)] pointerValue];
 
-                Class cls = object_getClass((__bridge NSObject *)arg);
+            if (!arg) {
+                // Support objects and primitive types as arguments
+                if (type[0] == @encode(id)[0]) {
+                    arg = va_arg(args, void *);
 
-                if (!cls || cls == NSClassFromString(@"__NSMallocBlock__")) {
-                    arg = nil;
+                    Class objectClass = object_getClass((__bridge id)arg);
+                    Class targetClass = NSClassFromString([[NSString stringWithUTF8String:type] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"\"@"]]);
+
+                    if (! targetClass && objectClass != [listener class]) {
+                        targetClass = objectClass;
+                    }
+
+                    if (NO == [objectClass isSubclassOfClass:targetClass]) {
+                        arg = nil;
+                    }
                 }
-            }
-            else if (type[0] == @encode(char *)[0]) {
-                arg = va_arg(args, char *);
-            }
-            else {
-                arg = va_arg(args, int);
+                else if (type[0] == @encode(char *)[0]) {
+                    arg = va_arg(args, char *);
+                }
+                else {
+                    arg = va_arg(args, int);
+                }
+
+                // Cache the argument for future calls
+                arguments[@(i)] = [NSValue valueWithPointer:arg];
             }
 
             [invocation setArgument:&arg atIndex:i - 1];
         }
-        
+
         [invocation invoke];
     }
-    
+
     // Remove events that are only scheduled to execute once
     NSSet *eventsToRemove = [self.eventListeners[event] keysOfEntriesPassingTest:^BOOL(id key, id obj, BOOL *stop) {
         return YES == [obj boolValue];

@@ -111,7 +111,48 @@ describe(@"emit:", ^{
 
         [emitter emit:@"key"];
     });
-    
+
+    it(@"notifies listener and sets invalid parameter to nil", ^AsyncBlock {
+        NSString *param = @"example-parameter";
+
+        [emitter on:@"key" listener:^(NSArray *param){
+            expect(param).to.beNil();
+
+            done();
+        }];
+
+        [emitter emit:@"key", param];
+    });
+
+    it(@"notifies multiple listeners with one parameter", ^AsyncBlock {
+        NSString *param = @"example-parameter";
+
+        __block BOOL listener1;
+        __block BOOL listener2;
+
+        [emitter on:@"key" listener:^(NSString *value) {
+            listener1 = YES;
+
+            expect(value).to.equal(param);
+
+            if (listener1 && listener2) {
+                done();
+            }
+        }];
+
+        [emitter on:@"key" listener:^(NSString *value) {
+            listener2 = YES;
+
+            expect(value).to.equal(param);
+
+            if (listener1 && listener2) {
+                done();
+            }
+        }];
+
+        [emitter emit:@"key", param];
+    });
+
     it(@"removes listener", ^{
         id listener = ^{
             XCTFail(@"listener should not fire");
