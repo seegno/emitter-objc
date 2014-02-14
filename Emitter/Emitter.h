@@ -1,6 +1,6 @@
 //
-//  EventEmitter-Prefix.pch
-//  EventEmitter
+//  Emitter-Prefix.pch
+//  Emitter
 //
 //  Created by Nuno Sousa on 2/1/14.
 //  Copyright (c) 2014 Seegno. All rights reserved.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSObject(EventEmitter)
+@interface NSObject(Emitter)
 
 - (void)addListener:(NSString *)event listener:(id)listener;
 

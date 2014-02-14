@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1642E92208EC482BA7E8D709 /* libPods-EventEmitterTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8158A801EEB946FBB6E07D8B /* libPods-EventEmitterTests.a */; };
+		51E206F1FF4145038F60AAF1 /* libPods-EmitterTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D30EA9E9FE14528BDFB2D2E /* libPods-EmitterTests.a */; };
 		59684AD015F9DF500063CF5E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59684ACF15F9DF500063CF5E /* Cocoa.framework */; };
-		59684ADA15F9DF500063CF5E /* EventEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 59684AD915F9DF500063CF5E /* EventEmitter.m */; };
+		59684ADA15F9DF500063CF5E /* Emitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 59684AD915F9DF500063CF5E /* Emitter.m */; };
 		59684AE315F9DF500063CF5E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59684ACF15F9DF500063CF5E /* Cocoa.framework */; };
-		59684AE615F9DF500063CF5E /* EventEmitter.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 59684ACC15F9DF500063CF5E /* EventEmitter.dylib */; };
-		59684AEF15F9DF500063CF5E /* EventEmitterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 59684AEE15F9DF500063CF5E /* EventEmitterTests.m */; };
+		59684AE615F9DF500063CF5E /* Emitter.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 59684ACC15F9DF500063CF5E /* Emitter.dylib */; };
+		59684AEF15F9DF500063CF5E /* EmitterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 59684AEE15F9DF500063CF5E /* EmitterTests.m */; };
 		59ED69701616F891009C400B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 59ED696F1616F891009C400B /* README.md */; };
 		64634FCB189D508900B2901F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64634FCA189D508900B2901F /* XCTest.framework */; };
 		CB4919C50D22474F8B4346B1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B6A8F661D74DED8997F8F8 /* libPods.a */; };
@@ -30,21 +30,23 @@
 
 /* Begin PBXFileReference section */
 		1F0969A822004F25A8D2CE38 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
-		59684ACC15F9DF500063CF5E /* EventEmitter.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = EventEmitter.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		33715D2D81AB49FB8082B0CE /* Pods-EmitterTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmitterTests.xcconfig"; path = "Pods/Pods-EmitterTests.xcconfig"; sourceTree = "<group>"; };
+		59684ACC15F9DF500063CF5E /* Emitter.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = Emitter.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		59684ACF15F9DF500063CF5E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		59684AD215F9DF500063CF5E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		59684AD315F9DF500063CF5E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		59684AD415F9DF500063CF5E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		59684AD815F9DF500063CF5E /* EventEmitter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventEmitter.h; sourceTree = "<group>"; };
-		59684AD915F9DF500063CF5E /* EventEmitter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventEmitter.m; sourceTree = "<group>"; };
-		59684AE015F9DF500063CF5E /* EventEmitterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EventEmitterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		59684AEE15F9DF500063CF5E /* EventEmitterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventEmitterTests.m; sourceTree = "<group>"; };
+		59684AD815F9DF500063CF5E /* Emitter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Emitter.h; sourceTree = "<group>"; };
+		59684AD915F9DF500063CF5E /* Emitter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Emitter.m; sourceTree = "<group>"; };
+		59684AE015F9DF500063CF5E /* EmitterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EmitterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		59684AEE15F9DF500063CF5E /* EmitterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmitterTests.m; sourceTree = "<group>"; };
 		59ED696F1616F891009C400B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		64634FC9189D44E700B2901F /* EventEmitter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EventEmitter-Prefix.pch"; sourceTree = "<group>"; };
+		64634FC9189D44E700B2901F /* Emitter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Emitter-Prefix.pch"; sourceTree = "<group>"; };
 		64634FCA189D508900B2901F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		6D30EA9E9FE14528BDFB2D2E /* libPods-EmitterTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EmitterTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8158A801EEB946FBB6E07D8B /* libPods-EventEmitterTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EventEmitterTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AAFEEF434CC3431880CBDC9F /* Pods-EventEmitterTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EventEmitterTests.xcconfig"; path = "Pods/Pods-EventEmitterTests.xcconfig"; sourceTree = "<group>"; };
 		D5B6A8F661D74DED8997F8F8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5C3F24218AE6D7300530749 /* Emitter.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Emitter.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +65,8 @@
 			files = (
 				64634FCB189D508900B2901F /* XCTest.framework in Frameworks */,
 				59684AE315F9DF500063CF5E /* Cocoa.framework in Frameworks */,
-				59684AE615F9DF500063CF5E /* EventEmitter.dylib in Frameworks */,
-				1642E92208EC482BA7E8D709 /* libPods-EventEmitterTests.a in Frameworks */,
+				59684AE615F9DF500063CF5E /* Emitter.dylib in Frameworks */,
+				51E206F1FF4145038F60AAF1 /* libPods-EmitterTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,20 +77,21 @@
 			isa = PBXGroup;
 			children = (
 				59ED696F1616F891009C400B /* README.md */,
-				59684AD515F9DF500063CF5E /* EventEmitter */,
-				59684AE715F9DF500063CF5E /* EventEmitterTests */,
+				59684AD515F9DF500063CF5E /* Emitter */,
+				59684AE715F9DF500063CF5E /* EmitterTests */,
 				59684ACE15F9DF500063CF5E /* Frameworks */,
 				59684ACD15F9DF500063CF5E /* Products */,
+				E5C3F24218AE6D7300530749 /* Emitter.podspec */,
 				1F0969A822004F25A8D2CE38 /* Pods.xcconfig */,
-				AAFEEF434CC3431880CBDC9F /* Pods-EventEmitterTests.xcconfig */,
+				33715D2D81AB49FB8082B0CE /* Pods-EmitterTests.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
 		59684ACD15F9DF500063CF5E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				59684ACC15F9DF500063CF5E /* EventEmitter.dylib */,
-				59684AE015F9DF500063CF5E /* EventEmitterTests.xctest */,
+				59684ACC15F9DF500063CF5E /* Emitter.dylib */,
+				59684AE015F9DF500063CF5E /* EmitterTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -101,6 +104,7 @@
 				59684AD115F9DF500063CF5E /* Other Frameworks */,
 				D5B6A8F661D74DED8997F8F8 /* libPods.a */,
 				8158A801EEB946FBB6E07D8B /* libPods-EventEmitterTests.a */,
+				6D30EA9E9FE14528BDFB2D2E /* libPods-EmitterTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -115,28 +119,28 @@
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
-		59684AD515F9DF500063CF5E /* EventEmitter */ = {
+		59684AD515F9DF500063CF5E /* Emitter */ = {
 			isa = PBXGroup;
 			children = (
-				59684AD815F9DF500063CF5E /* EventEmitter.h */,
-				59684AD915F9DF500063CF5E /* EventEmitter.m */,
+				59684AD815F9DF500063CF5E /* Emitter.h */,
+				59684AD915F9DF500063CF5E /* Emitter.m */,
 			);
-			path = EventEmitter;
+			path = Emitter;
 			sourceTree = "<group>";
 		};
-		59684AE715F9DF500063CF5E /* EventEmitterTests */ = {
+		59684AE715F9DF500063CF5E /* EmitterTests */ = {
 			isa = PBXGroup;
 			children = (
 				64634FC8189D44D200B2901F /* Supporting Files */,
-				59684AEE15F9DF500063CF5E /* EventEmitterTests.m */,
+				59684AEE15F9DF500063CF5E /* EmitterTests.m */,
 			);
-			path = EventEmitterTests;
+			path = EmitterTests;
 			sourceTree = "<group>";
 		};
 		64634FC8189D44D200B2901F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				64634FC9189D44E700B2901F /* EventEmitter-Prefix.pch */,
+				64634FC9189D44E700B2901F /* Emitter-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -154,9 +158,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		59684ACB15F9DF500063CF5E /* EventEmitter */ = {
+		59684ACB15F9DF500063CF5E /* Emitter */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 59684AF215F9DF500063CF5E /* Build configuration list for PBXNativeTarget "EventEmitter" */;
+			buildConfigurationList = 59684AF215F9DF500063CF5E /* Build configuration list for PBXNativeTarget "Emitter" */;
 			buildPhases = (
 				2096BF558CD04AB4BC8DA7E8 /* Check Pods Manifest.lock */,
 				59684AC815F9DF500063CF5E /* Sources */,
@@ -168,14 +172,14 @@
 			);
 			dependencies = (
 			);
-			name = EventEmitter;
+			name = Emitter;
 			productName = EventEmitter;
-			productReference = 59684ACC15F9DF500063CF5E /* EventEmitter.dylib */;
+			productReference = 59684ACC15F9DF500063CF5E /* Emitter.dylib */;
 			productType = "com.apple.product-type.library.dynamic";
 		};
-		59684ADF15F9DF500063CF5E /* EventEmitterTests */ = {
+		59684ADF15F9DF500063CF5E /* EmitterTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 59684AF515F9DF500063CF5E /* Build configuration list for PBXNativeTarget "EventEmitterTests" */;
+			buildConfigurationList = 59684AF515F9DF500063CF5E /* Build configuration list for PBXNativeTarget "EmitterTests" */;
 			buildPhases = (
 				E75F4B4C969C4B8DA672FE18 /* Check Pods Manifest.lock */,
 				59684ADB15F9DF500063CF5E /* Sources */,
@@ -188,9 +192,9 @@
 			dependencies = (
 				59684AE515F9DF500063CF5E /* PBXTargetDependency */,
 			);
-			name = EventEmitterTests;
+			name = EmitterTests;
 			productName = EventEmitterTests;
-			productReference = 59684AE015F9DF500063CF5E /* EventEmitterTests.xctest */;
+			productReference = 59684AE015F9DF500063CF5E /* EmitterTests.xctest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -202,7 +206,7 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = buenocode;
 			};
-			buildConfigurationList = 59684AC615F9DF500063CF5E /* Build configuration list for PBXProject "EventEmitter" */;
+			buildConfigurationList = 59684AC615F9DF500063CF5E /* Build configuration list for PBXProject "Emitter" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -214,8 +218,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				59684ACB15F9DF500063CF5E /* EventEmitter */,
-				59684ADF15F9DF500063CF5E /* EventEmitterTests */,
+				59684ACB15F9DF500063CF5E /* Emitter */,
+				59684ADF15F9DF500063CF5E /* EmitterTests */,
 			);
 		};
 /* End PBXProject section */
@@ -259,7 +263,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-EventEmitterTests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Pods-EmitterTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		84489DD248C345E0925F09E4 /* Copy Pods Resources */ = {
@@ -274,7 +278,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-EventEmitterTests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Pods-EmitterTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E75F4B4C969C4B8DA672FE18 /* Check Pods Manifest.lock */ = {
@@ -299,7 +303,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59684ADA15F9DF500063CF5E /* EventEmitter.m in Sources */,
+				59684ADA15F9DF500063CF5E /* Emitter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,7 +311,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59684AEF15F9DF500063CF5E /* EventEmitterTests.m in Sources */,
+				59684AEF15F9DF500063CF5E /* EmitterTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,7 +320,7 @@
 /* Begin PBXTargetDependency section */
 		59684AE515F9DF500063CF5E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 59684ACB15F9DF500063CF5E /* EventEmitter */;
+			target = 59684ACB15F9DF500063CF5E /* Emitter */;
 			targetProxy = 59684AE415F9DF500063CF5E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -373,34 +377,34 @@
 		};
 		59684AF315F9DF500063CF5E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AAFEEF434CC3431880CBDC9F /* Pods-EventEmitterTests.xcconfig */;
+			baseConfigurationReference = 33715D2D81AB49FB8082B0CE /* Pods-EmitterTests.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Emitter;
 			};
 			name = Debug;
 		};
 		59684AF415F9DF500063CF5E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AAFEEF434CC3431880CBDC9F /* Pods-EventEmitterTests.xcconfig */;
+			baseConfigurationReference = 33715D2D81AB49FB8082B0CE /* Pods-EmitterTests.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Emitter;
 			};
 			name = Release;
 		};
 		59684AF615F9DF500063CF5E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AAFEEF434CC3431880CBDC9F /* Pods-EventEmitterTests.xcconfig */;
+			baseConfigurationReference = 33715D2D81AB49FB8082B0CE /* Pods-EmitterTests.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "EventEmitterTests/EventEmitter-Prefix.pch";
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/EmitterTests/Emitter-Prefix.pch";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lffi",
@@ -409,19 +413,19 @@
 					"-framework",
 					XCTest,
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = EmitterTests;
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
 		};
 		59684AF715F9DF500063CF5E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AAFEEF434CC3431880CBDC9F /* Pods-EventEmitterTests.xcconfig */;
+			baseConfigurationReference = 33715D2D81AB49FB8082B0CE /* Pods-EmitterTests.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "EventEmitterTests/EventEmitter-Prefix.pch";
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/EmitterTests/Emitter-Prefix.pch";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lffi",
@@ -430,7 +434,7 @@
 					"-framework",
 					XCTest,
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = EmitterTests;
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
@@ -438,7 +442,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		59684AC615F9DF500063CF5E /* Build configuration list for PBXProject "EventEmitter" */ = {
+		59684AC615F9DF500063CF5E /* Build configuration list for PBXProject "Emitter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				59684AF015F9DF500063CF5E /* Debug */,
@@ -447,7 +451,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		59684AF215F9DF500063CF5E /* Build configuration list for PBXNativeTarget "EventEmitter" */ = {
+		59684AF215F9DF500063CF5E /* Build configuration list for PBXNativeTarget "Emitter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				59684AF315F9DF500063CF5E /* Debug */,
@@ -456,7 +460,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		59684AF515F9DF500063CF5E /* Build configuration list for PBXNativeTarget "EventEmitterTests" */ = {
+		59684AF515F9DF500063CF5E /* Build configuration list for PBXNativeTarget "EmitterTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				59684AF615F9DF500063CF5E /* Debug */,

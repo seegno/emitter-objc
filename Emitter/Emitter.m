@@ -1,18 +1,18 @@
 //
-//  EventEmitter-Prefix.pch
-//  EventEmitter
+//  Emitter-Prefix.pch
+//  Emitter
 //
 //  Created by Nuno Sousa on 2/1/14.
 //  Copyright (c) 2014 Seegno. All rights reserved.
 //
 
-#import "EventEmitter.h"
+#import "Emitter.h"
 
 #import <objc/runtime.h>
 #import <BlocksKit/A2BlockInvocation.h>
 #import <SLObjectiveCRuntimeAdditions/SLBlockDescription.h>
 
-@implementation NSObject(EventEmitter)
+@implementation NSObject(Emitter)
 
 - (NSMutableDictionary *)eventListeners
 {
