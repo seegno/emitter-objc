@@ -30,7 +30,7 @@
     }
 }
 
-- (void)addListener:(NSString *)event listener:(id)listener once:(BOOL)once
+- (void)addListener:(id)event listener:(id)listener once:(BOOL)once
 {
     if (!self.eventListeners[event]) {
         self.eventListeners[event] = [[NSMutableDictionary alloc] init];
@@ -39,27 +39,27 @@
     self.eventListeners[event][listener] = @(once);
 }
 
-- (void)addListener:(NSString *)event listener:(id)listener
+- (void)addListener:(id)event listener:(id)listener
 {
     [self addListener:event listener:listener once:NO];
 }
 
-- (void)on:(NSString *)event listener:(id)listener
+- (void)on:(id)event listener:(id)listener
 {
     [self addListener:event listener:listener once:NO];
 }
 
-- (void)once:(NSString *)event listener:(id)listener
+- (void)once:(id)event listener:(id)listener
 {
     [self addListener:event listener:listener once:YES];
 }
 
-- (void)removeListener:(NSString *)event listener:(id)listener
+- (void)removeListener:(id)event listener:(id)listener
 {
     [self.eventListeners[event] removeObjectForKey:listener];
 }
 
-- (void)removeAllListeners:(NSString *)event
+- (void)removeAllListeners:(id)event
 {
     for (id listener in self.eventListeners[event]) {
         [self removeListener:event listener:listener];
@@ -68,12 +68,12 @@
 
 - (void)removeAllListeners
 {
-    for (NSString *event in self.eventListeners) {
+    for (id event in self.eventListeners) {
         [self removeAllListeners:event];
     }
 }
 
-- (void)emit:(NSString *)event, ...
+- (void)emit:(id)event, ...
 {
     va_list args;
     va_start(args, event);
@@ -83,7 +83,7 @@
     va_end(args);
 }
 
-- (void)emit:(NSString *)event args:(va_list)args
+- (void)emit:(id)event args:(va_list)args
 {
     NSMutableDictionary *arguments = [[NSMutableDictionary alloc] init];
 
@@ -134,7 +134,7 @@
     NSSet *eventsToRemove = [self.eventListeners[event] keysOfEntriesPassingTest:^BOOL(id key, id obj, BOOL *stop) {
         return YES == [obj boolValue];
     }];
-    
+
     for (NSDictionary *listener in eventsToRemove) {
         [self removeListener:event listener:listener];
     }
