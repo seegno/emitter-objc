@@ -61,14 +61,14 @@
 
 - (void)removeAllListeners:(id)event
 {
-    for (id listener in self.eventListeners[event]) {
+    for (id listener in [self.eventListeners[event] copy]) {
         [self removeListener:event listener:listener];
     }
 }
 
 - (void)removeAllListeners
 {
-    for (id event in self.eventListeners) {
+    for (id event in [self.eventListeners copy]) {
         [self removeAllListeners:event];
     }
 }

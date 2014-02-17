@@ -177,14 +177,29 @@ describe(@"emit:", ^{
         [emitter emit:@"key"];
     });
 
-    
-    it(@"removes all listeners", ^{
-        id listener = ^{
+    it(@"removes all listeners for multiple events", ^{
+        [emitter on:@"key" listener:^{
             XCTFail(@"listener should not fire");
-        };
-        
-        [emitter on:@"key" listener:listener];
-        
+        }];
+
+        [emitter on:@"key" listener:^{
+            XCTFail(@"listener should not fire");
+        }];
+
+        [emitter removeAllListeners:@"key"];
+
+        [emitter emit:@"key"];
+    });
+
+    it(@"removes all listeners", ^{
+        [emitter on:@"key" listener:^{
+            XCTFail(@"listener should not fire");
+        }];
+
+        [emitter on:@"key" listener:^{
+            XCTFail(@"listener should not fire");
+        }];
+
         [emitter removeAllListeners];
         
         [emitter emit:@"key"];
