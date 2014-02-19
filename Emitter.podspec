@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version               = "0.0.3"
   s.summary               = "An event emitter implementation for Objective-C with dynamic block invocation based on the node.js EventEmitter API."
   s.homepage              = "https://github.com/seegno/emitter"
-  s.author                = "Nuno Sousa"
+  s.author                = "Seegno"
   s.license               = { :type => 'MIT', :file => 'LICENSE'}
   s.source                = { :git => 'https://github.com/seegno/emitter-objc.git', :tag => "#{s.version}" }
   s.source_files          = "Emitter/*.{h,m}"
