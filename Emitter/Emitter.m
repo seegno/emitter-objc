@@ -6,11 +6,12 @@
 //  Copyright (c) 2014 Seegno. All rights reserved.
 //
 
-#import "Emitter.h"
-
 #import <objc/runtime.h>
 #import <BlocksKit/A2BlockInvocation.h>
 #import <SLObjectiveCRuntimeAdditions/SLBlockDescription.h>
+
+#import "A2BlockInvocation+EXT.h"
+#import "Emitter.h"
 
 @implementation NSObject(Emitter)
 
@@ -85,49 +86,13 @@
 
 - (void)emit:(id)event args:(va_list)args
 {
-    NSMutableDictionary *arguments = [[NSMutableDictionary alloc] init];
-
     // Emit event for all registered listeners
     for (id listener in self.eventListeners[event]) {
         NSMethodSignature *signature = [[[SLBlockDescription alloc] initWithBlock:listener] blockSignature];
-        A2BlockInvocation *invocation = [[A2BlockInvocation alloc] initWithBlock:listener methodSignature:signature];
+        A2BlockInvocation *blockInvocation = [[A2BlockInvocation alloc] initWithBlock:listener methodSignature:signature];
 
-        // The first argument in a block is a pointer to the block structure, so we start from 1
-        for (int i = 1; i < signature.numberOfArguments; i++) {
-            const char *type = [signature getArgumentTypeAtIndex:i];
-            void *arg = [arguments[@(i)] pointerValue];
-
-            if (!arg) {
-                // Support objects and primitive types as arguments
-                if (type[0] == @encode(id)[0]) {
-                    arg = va_arg(args, void *);
-
-                    Class objectClass = object_getClass((__bridge id)arg);
-                    Class targetClass = NSClassFromString([[NSString stringWithUTF8String:type] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"\"@"]]);
-
-                    if (! targetClass && objectClass != [listener class]) {
-                        targetClass = objectClass;
-                    }
-
-                    if (NO == [objectClass isSubclassOfClass:targetClass]) {
-                        arg = nil;
-                    }
-                }
-                else if (type[0] == @encode(char *)[0]) {
-                    arg = va_arg(args, char *);
-                }
-                else {
-                    arg = va_arg(args, int);
-                }
-
-                // Cache the argument for future calls
-                arguments[@(i)] = [NSValue valueWithPointer:arg];
-            }
-
-            [invocation setArgument:&arg atIndex:i - 1];
-        }
-
-        [invocation invoke];
+        [blockInvocation setArgumentsFromArgumentList:args];
+        [blockInvocation invoke];
     }
 
     // Remove events that are only scheduled to execute once

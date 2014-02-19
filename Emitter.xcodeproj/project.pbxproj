@@ -16,6 +16,8 @@
 		59ED69701616F891009C400B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 59ED696F1616F891009C400B /* README.md */; };
 		64634FCB189D508900B2901F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64634FCA189D508900B2901F /* XCTest.framework */; };
 		CB4919C50D22474F8B4346B1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B6A8F661D74DED8997F8F8 /* libPods.a */; };
+		E5682C9B18B52D6D00F5D583 /* A2BlockInvocation+EXT.h in Headers */ = {isa = PBXBuildFile; fileRef = E5682C9918B52D6D00F5D583 /* A2BlockInvocation+EXT.h */; };
+		E5682C9C18B52D6D00F5D583 /* A2BlockInvocation+EXT.m in Sources */ = {isa = PBXBuildFile; fileRef = E5682C9A18B52D6D00F5D583 /* A2BlockInvocation+EXT.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,8 @@
 		6D30EA9E9FE14528BDFB2D2E /* libPods-EmitterTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EmitterTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8158A801EEB946FBB6E07D8B /* libPods-EventEmitterTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EventEmitterTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5B6A8F661D74DED8997F8F8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5682C9918B52D6D00F5D583 /* A2BlockInvocation+EXT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "A2BlockInvocation+EXT.h"; sourceTree = "<group>"; };
+		E5682C9A18B52D6D00F5D583 /* A2BlockInvocation+EXT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "A2BlockInvocation+EXT.m"; sourceTree = "<group>"; };
 		E5C3F24218AE6D7300530749 /* Emitter.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Emitter.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -124,6 +128,8 @@
 			children = (
 				59684AD815F9DF500063CF5E /* Emitter.h */,
 				59684AD915F9DF500063CF5E /* Emitter.m */,
+				E5682C9918B52D6D00F5D583 /* A2BlockInvocation+EXT.h */,
+				E5682C9A18B52D6D00F5D583 /* A2BlockInvocation+EXT.m */,
 			);
 			path = Emitter;
 			sourceTree = "<group>";
@@ -152,6 +158,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5682C9B18B52D6D00F5D583 /* A2BlockInvocation+EXT.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +310,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5682C9C18B52D6D00F5D583 /* A2BlockInvocation+EXT.m in Sources */,
 				59684ADA15F9DF500063CF5E /* Emitter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -102,28 +102,6 @@ describe(@"emit:", ^{
         [emitter emit:@"key"];
     });
 
-    it(@"notifies listener and sets extra object parameters to nil", ^AsyncBlock {
-        [emitter on:@"key" listener:^(id param1, BOOL param2){
-            expect(param1).to.beNil();
-
-            done();
-        }];
-
-        [emitter emit:@"key"];
-    });
-
-    it(@"notifies listener and sets invalid parameter to nil", ^AsyncBlock {
-        NSString *param = @"example-parameter";
-
-        [emitter on:@"key" listener:^(NSArray *param){
-            expect(param).to.beNil();
-
-            done();
-        }];
-
-        [emitter emit:@"key", param];
-    });
-
     it(@"notifies multiple listeners with one parameter", ^AsyncBlock {
         NSString *param = @"example-parameter";
 
