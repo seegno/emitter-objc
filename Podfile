@@ -4,8 +4,9 @@ inhibit_all_warnings!
 pod 'BlocksKit/DynamicDelegate'
 pod 'SLObjectiveCRuntimeAdditions'
 
-target :EmitterTests do
-  link_with 'Emitter', 'EmitterTests'
+target :EmitterTests, :exclusive => true do
+  pod 'BlocksKit/DynamicDelegate'
+  pod 'SLObjectiveCRuntimeAdditions'
 
   pod 'Specta'
   pod 'Expecta'
