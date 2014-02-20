@@ -131,6 +131,20 @@ describe(@"emit:", ^{
         [emitter emit:@"key", param];
     });
 
+    fit(@"notifies listener with an array of arguments", ^AsyncBlock {
+        NSString *param1 = @"example-parameter";
+        NSNumber *param2 = @123;
+
+        [emitter on:@"key" listener:^(NSString *value1, NSNumber *value2) {
+            expect(value1).to.equal(param1);
+            expect(value2).to.equal(param2);
+
+            done();
+        }];
+
+        [emitter emit:@"key" args:@[param1, param2]];
+    });
+
     it(@"removes listener", ^{
         id listener = ^{
             XCTFail(@"listener should not fire");

@@ -79,14 +79,31 @@
     va_list args;
     va_start(args, event);
 
-    [self emit:event args:args];
+    [self emit:event vargs:args];
 
     va_end(args);
 }
 
-- (void)emit:(id)event args:(va_list)args
+- (void)emit:(id)event args:(NSArray *)args
 {
-    // Emit event for all registered listeners
+    for (id listener in self.eventListeners[event]) {
+        NSMethodSignature *signature = [[[SLBlockDescription alloc] initWithBlock:listener] blockSignature];
+        A2BlockInvocation *blockInvocation = [[A2BlockInvocation alloc] initWithBlock:listener methodSignature:signature];
+
+        for (int i=0; i < signature.numberOfArguments - 1; i++) {
+            id arg = args[i];
+
+            [blockInvocation setArgument:&arg atIndex:i];
+        }
+
+        [blockInvocation invoke];
+    }
+
+    [self removeOnceEvents:event];
+}
+
+- (void)emit:(id)event vargs:(va_list)args
+{
     for (id listener in self.eventListeners[event]) {
         NSMethodSignature *signature = [[[SLBlockDescription alloc] initWithBlock:listener] blockSignature];
         A2BlockInvocation *blockInvocation = [[A2BlockInvocation alloc] initWithBlock:listener methodSignature:signature];
@@ -95,7 +112,16 @@
         [blockInvocation invoke];
     }
 
-    // Remove events that are only scheduled to execute once
+    [self removeOnceEvents:event];
+}
+
+/**
+ * Remove events that are only scheduled to execute once
+ *
+ * @param event The name of the event
+ */
+- (void)removeOnceEvents:(NSString *)event
+{
     NSSet *eventsToRemove = [self.eventListeners[event] keysOfEntriesPassingTest:^BOOL(id key, id obj, BOOL *stop) {
         return YES == [obj boolValue];
     }];

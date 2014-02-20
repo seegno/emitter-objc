@@ -55,11 +55,19 @@
 - (void)removeAllListeners;
 
 /**
- * Execute each of the listeners in order with the supplied arguments.
+ * Execute each of the listeners, in order, with the supplied arguments.
  *
  * @param event     The event.
  * @param va_args   A list of arguments to be passed to the block.
  */
 - (void)emit:(id)event, ...;
+
+/**
+ * Execute each of the listeners, in order, with the supplied arguments as an NSArray.
+ *
+ * @param event     The event.
+ * @param NSArray   An array of arguments to be passed to the block.
+ */
+- (void)emit:(id)event args:(NSArray *)args;
 
 @end
