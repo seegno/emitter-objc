@@ -6,7 +6,7 @@ The library adds a category to NSObject that allows any object to `emit` or `lis
 
 Add it as a Cocoapods dependency to your Podfile:
 
-	pod 'Emitter', '~> 0.0.3'
+	pod 'Emitter', '~> 0.0.5'
 
 ## Use it
 
