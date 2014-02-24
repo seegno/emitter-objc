@@ -116,9 +116,9 @@
 }
 
 /**
- * Remove events that are only scheduled to execute once
+ *  Remove events that are only scheduled to execute once.
  *
- * @param event The name of the event
+ *  @param event The name of the event.
  */
 - (void)removeOnceEvents:(NSString *)event
 {
