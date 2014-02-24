@@ -102,6 +102,14 @@ describe(@"emit:", ^{
         [emitter emit:@"key"];
     });
 
+    it(@"notifies listener and ignores extra parameters when using array args", ^AsyncBlock {
+        [emitter on:@"key" listener:^(NSNumber *param1, NSString *param2){
+            done();
+        }];
+
+        [emitter emit:@"key" args:@[@123]];
+    });
+
     it(@"notifies multiple listeners with one parameter", ^AsyncBlock {
         NSString *param = @"example-parameter";
 

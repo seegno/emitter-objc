@@ -90,7 +90,7 @@
         NSMethodSignature *signature = [[[SLBlockDescription alloc] initWithBlock:listener] blockSignature];
         A2BlockInvocation *blockInvocation = [[A2BlockInvocation alloc] initWithBlock:listener methodSignature:signature];
 
-        for (int i=0; i < signature.numberOfArguments - 1; i++) {
+        for (int i=0; i < MIN(signature.numberOfArguments - 1, args.count); i++) {
             id arg = args[i];
 
             [blockInvocation setArgument:&arg atIndex:i];
