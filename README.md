@@ -2,6 +2,8 @@ EventEmitter for Objective-C that implements the NodeJS EventEmitter API as clos
 
 The library adds a category to NSObject that allows any object to `emit` or `listen` to events.
 
+[![Build Status](https://travis-ci.org/seegno/emitter-objc.png)](https://travis-ci.org/seegno/emitter-objc)
+
 ## Install it
 
 Add it as a Cocoapods dependency to your Podfile:
