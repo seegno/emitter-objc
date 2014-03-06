@@ -57,6 +57,10 @@
 
 - (void)removeListener:(id)event listener:(id)listener
 {
+    if (!listener) {
+        return;
+    }
+
     [self.eventListeners[event] removeObjectForKey:listener];
 }
 
@@ -86,7 +90,9 @@
 
 - (void)emit:(id)event args:(NSArray *)args
 {
-    for (id listener in self.eventListeners[event]) {
+    NSDictionary *listeners = [self.eventListeners[event] copy];
+
+    for (id listener in listeners) {
         NSMethodSignature *signature = [[[SLBlockDescription alloc] initWithBlock:listener] blockSignature];
         A2BlockInvocation *blockInvocation = [[A2BlockInvocation alloc] initWithBlock:listener methodSignature:signature];
 
@@ -97,37 +103,29 @@
         }
 
         [blockInvocation invoke];
-    }
 
-    [self removeOnceEvents:event];
+        // Remove events that are only scheduled to execute once
+        if (YES == [listeners[listener] boolValue]) {
+            [self removeListener:event listener:listener];
+        }
+    }
 }
 
 - (void)emit:(id)event vargs:(va_list)args
 {
-    for (id listener in self.eventListeners[event]) {
+    NSDictionary *listeners = [self.eventListeners[event] copy];
+
+    for (id listener in listeners) {
         NSMethodSignature *signature = [[[SLBlockDescription alloc] initWithBlock:listener] blockSignature];
         A2BlockInvocation *blockInvocation = [[A2BlockInvocation alloc] initWithBlock:listener methodSignature:signature];
 
         [blockInvocation setArgumentsFromArgumentList:args];
         [blockInvocation invoke];
-    }
 
-    [self removeOnceEvents:event];
-}
-
-/**
- *  Remove events that are only scheduled to execute once.
- *
- *  @param event The name of the event.
- */
-- (void)removeOnceEvents:(NSString *)event
-{
-    NSSet *eventsToRemove = [self.eventListeners[event] keysOfEntriesPassingTest:^BOOL(id key, id obj, BOOL *stop) {
-        return YES == [obj boolValue];
-    }];
-
-    for (NSDictionary *listener in eventsToRemove) {
-        [self removeListener:event listener:listener];
+        // Remove events that are only scheduled to execute once
+        if (YES == [listeners[listener] boolValue]) {
+            [self removeListener:event listener:listener];
+        }
     }
 }
 
