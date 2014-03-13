@@ -11,6 +11,6 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '6.0'
   s.osx.deployment_target = '10.7'
 
-  s.dependency 'BlocksKit/DynamicDelegate', '~> 2.0.0'
-  s.dependency 'SLObjectiveCRuntimeAdditions', '~> 1.1.2'
+  s.dependency 'BlocksKit/DynamicDelegate'
+  s.dependency 'SLObjectiveCRuntimeAdditions'
 end
