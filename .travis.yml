@@ -6,3 +6,5 @@ before_install:
 before_script:
   - brew update
   - brew upgrade xctool
+notifications:
+  slack: seegno:AoXFWrkPDMfOuaxvckPs7hc0
