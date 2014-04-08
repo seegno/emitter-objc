@@ -9,15 +9,20 @@
 /* Begin PBXBuildFile section */
 		51E206F1FF4145038F60AAF1 /* libPods-EmitterTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D30EA9E9FE14528BDFB2D2E /* libPods-EmitterTests.a */; };
 		59684AD015F9DF500063CF5E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59684ACF15F9DF500063CF5E /* Cocoa.framework */; };
-		59684ADA15F9DF500063CF5E /* Emitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 59684AD915F9DF500063CF5E /* Emitter.m */; };
 		59684AE315F9DF500063CF5E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59684ACF15F9DF500063CF5E /* Cocoa.framework */; };
 		59684AE615F9DF500063CF5E /* Emitter.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 59684ACC15F9DF500063CF5E /* Emitter.dylib */; };
-		59684AEF15F9DF500063CF5E /* EmitterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 59684AEE15F9DF500063CF5E /* EmitterTests.m */; };
+		59684AEF15F9DF500063CF5E /* Emitter+BlocksTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 59684AEE15F9DF500063CF5E /* Emitter+BlocksTests.m */; };
 		59ED69701616F891009C400B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 59ED696F1616F891009C400B /* README.md */; };
 		64634FCB189D508900B2901F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64634FCA189D508900B2901F /* XCTest.framework */; };
 		CB4919C50D22474F8B4346B1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B6A8F661D74DED8997F8F8 /* libPods.a */; };
-		E5682C9B18B52D6D00F5D583 /* A2BlockInvocation+EXT.h in Headers */ = {isa = PBXBuildFile; fileRef = E5682C9918B52D6D00F5D583 /* A2BlockInvocation+EXT.h */; };
-		E5682C9C18B52D6D00F5D583 /* A2BlockInvocation+EXT.m in Sources */ = {isa = PBXBuildFile; fileRef = E5682C9A18B52D6D00F5D583 /* A2BlockInvocation+EXT.m */; };
+		E5682C9B18B52D6D00F5D583 /* NSInvocation+BlockArguments.h in Headers */ = {isa = PBXBuildFile; fileRef = E5682C9918B52D6D00F5D583 /* NSInvocation+BlockArguments.h */; };
+		E5682C9C18B52D6D00F5D583 /* NSInvocation+BlockArguments.m in Sources */ = {isa = PBXBuildFile; fileRef = E5682C9A18B52D6D00F5D583 /* NSInvocation+BlockArguments.m */; };
+		E578156118F3FA7400698CFA /* Emitter+SelectorsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E578156018F3FA7400698CFA /* Emitter+SelectorsTests.m */; };
+		E5A9453118F2AB2F0076DCE8 /* Emitter+Blocks.h in Headers */ = {isa = PBXBuildFile; fileRef = E5A9452D18F2AB2F0076DCE8 /* Emitter+Blocks.h */; };
+		E5A9453218F2AB2F0076DCE8 /* Emitter+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A9452E18F2AB2F0076DCE8 /* Emitter+Blocks.m */; };
+		E5A9453318F2AB2F0076DCE8 /* Emitter+Selectors.h in Headers */ = {isa = PBXBuildFile; fileRef = E5A9452F18F2AB2F0076DCE8 /* Emitter+Selectors.h */; };
+		E5A9453418F2AB2F0076DCE8 /* Emitter+Selectors.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A9453018F2AB2F0076DCE8 /* Emitter+Selectors.m */; };
+		E5A9453618F2AB330076DCE8 /* Emitter.h in Headers */ = {isa = PBXBuildFile; fileRef = E5A9453518F2AB330076DCE8 /* Emitter.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,18 +43,22 @@
 		59684AD215F9DF500063CF5E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		59684AD315F9DF500063CF5E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		59684AD415F9DF500063CF5E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		59684AD815F9DF500063CF5E /* Emitter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Emitter.h; sourceTree = "<group>"; };
-		59684AD915F9DF500063CF5E /* Emitter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Emitter.m; sourceTree = "<group>"; };
 		59684AE015F9DF500063CF5E /* EmitterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EmitterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		59684AEE15F9DF500063CF5E /* EmitterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmitterTests.m; sourceTree = "<group>"; };
+		59684AEE15F9DF500063CF5E /* Emitter+BlocksTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Emitter+BlocksTests.m"; sourceTree = "<group>"; };
 		59ED696F1616F891009C400B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		64634FC9189D44E700B2901F /* Emitter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Emitter-Prefix.pch"; sourceTree = "<group>"; };
 		64634FCA189D508900B2901F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		6D30EA9E9FE14528BDFB2D2E /* libPods-EmitterTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EmitterTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8158A801EEB946FBB6E07D8B /* libPods-EventEmitterTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EventEmitterTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5B6A8F661D74DED8997F8F8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		E5682C9918B52D6D00F5D583 /* A2BlockInvocation+EXT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "A2BlockInvocation+EXT.h"; sourceTree = "<group>"; };
-		E5682C9A18B52D6D00F5D583 /* A2BlockInvocation+EXT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "A2BlockInvocation+EXT.m"; sourceTree = "<group>"; };
+		E5682C9918B52D6D00F5D583 /* NSInvocation+BlockArguments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSInvocation+BlockArguments.h"; sourceTree = "<group>"; };
+		E5682C9A18B52D6D00F5D583 /* NSInvocation+BlockArguments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+BlockArguments.m"; sourceTree = "<group>"; };
+		E578156018F3FA7400698CFA /* Emitter+SelectorsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Emitter+SelectorsTests.m"; sourceTree = "<group>"; };
+		E5A9452D18F2AB2F0076DCE8 /* Emitter+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Emitter+Blocks.h"; sourceTree = "<group>"; };
+		E5A9452E18F2AB2F0076DCE8 /* Emitter+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Emitter+Blocks.m"; sourceTree = "<group>"; };
+		E5A9452F18F2AB2F0076DCE8 /* Emitter+Selectors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Emitter+Selectors.h"; sourceTree = "<group>"; };
+		E5A9453018F2AB2F0076DCE8 /* Emitter+Selectors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Emitter+Selectors.m"; sourceTree = "<group>"; };
+		E5A9453518F2AB330076DCE8 /* Emitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Emitter.h; sourceTree = "<group>"; };
 		E5C3F24218AE6D7300530749 /* Emitter.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Emitter.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,10 +135,13 @@
 		59684AD515F9DF500063CF5E /* Emitter */ = {
 			isa = PBXGroup;
 			children = (
-				59684AD815F9DF500063CF5E /* Emitter.h */,
-				59684AD915F9DF500063CF5E /* Emitter.m */,
-				E5682C9918B52D6D00F5D583 /* A2BlockInvocation+EXT.h */,
-				E5682C9A18B52D6D00F5D583 /* A2BlockInvocation+EXT.m */,
+				E5A9453518F2AB330076DCE8 /* Emitter.h */,
+				E5A9452D18F2AB2F0076DCE8 /* Emitter+Blocks.h */,
+				E5A9452E18F2AB2F0076DCE8 /* Emitter+Blocks.m */,
+				E5A9452F18F2AB2F0076DCE8 /* Emitter+Selectors.h */,
+				E5A9453018F2AB2F0076DCE8 /* Emitter+Selectors.m */,
+				E5682C9918B52D6D00F5D583 /* NSInvocation+BlockArguments.h */,
+				E5682C9A18B52D6D00F5D583 /* NSInvocation+BlockArguments.m */,
 			);
 			path = Emitter;
 			sourceTree = "<group>";
@@ -138,7 +150,8 @@
 			isa = PBXGroup;
 			children = (
 				64634FC8189D44D200B2901F /* Supporting Files */,
-				59684AEE15F9DF500063CF5E /* EmitterTests.m */,
+				59684AEE15F9DF500063CF5E /* Emitter+BlocksTests.m */,
+				E578156018F3FA7400698CFA /* Emitter+SelectorsTests.m */,
 			);
 			path = EmitterTests;
 			sourceTree = "<group>";
@@ -158,7 +171,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5682C9B18B52D6D00F5D583 /* A2BlockInvocation+EXT.h in Headers */,
+				E5A9453318F2AB2F0076DCE8 /* Emitter+Selectors.h in Headers */,
+				E5A9453618F2AB330076DCE8 /* Emitter.h in Headers */,
+				E5682C9B18B52D6D00F5D583 /* NSInvocation+BlockArguments.h in Headers */,
+				E5A9453118F2AB2F0076DCE8 /* Emitter+Blocks.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,8 +326,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5682C9C18B52D6D00F5D583 /* A2BlockInvocation+EXT.m in Sources */,
-				59684ADA15F9DF500063CF5E /* Emitter.m in Sources */,
+				E5A9453418F2AB2F0076DCE8 /* Emitter+Selectors.m in Sources */,
+				E5A9453218F2AB2F0076DCE8 /* Emitter+Blocks.m in Sources */,
+				E5682C9C18B52D6D00F5D583 /* NSInvocation+BlockArguments.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,7 +336,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59684AEF15F9DF500063CF5E /* EmitterTests.m in Sources */,
+				59684AEF15F9DF500063CF5E /* Emitter+BlocksTests.m in Sources */,
+				E578156118F3FA7400698CFA /* Emitter+SelectorsTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

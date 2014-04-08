@@ -1,5 +1,5 @@
 //
-//  A2BlockInvocation+EXT.h
+//  NSInvocation+BlockArguments.h
 //  Emitter
 //
 //  Created by Nuno Sousa on 19/02/14.
@@ -8,9 +8,9 @@
 //  Original implementation from libextobjc: https://github.com/jspahrsummers/libextobjc
 //
 
-#import "A2BlockInvocation.h"
+#import <Foundation/Foundation.h>
 
-@interface A2BlockInvocation (EXT)
+@interface NSInvocation (BlockArguments)
 
 - (BOOL)setArgumentsFromArgumentList:(va_list)cargs;
 

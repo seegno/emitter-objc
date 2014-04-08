@@ -1,5 +1,5 @@
 //
-//  A2BlockInvocation+EXT.m
+//  NSInvocation+BlockArguments.m
 //  Emitter
 //
 //  Created by Nuno Sousa on 19/02/14.
@@ -8,12 +8,12 @@
 //  Original implementation from libextobjc: https://github.com/jspahrsummers/libextobjc
 //
 
-#import "A2BlockInvocation+EXT.h"
+#import "NSInvocation+BlockArguments.h"
 
 typedef struct { int i; } *empty_struct_ptr_t;
 typedef union { int i; } *empty_union_ptr_t;
 
-@implementation A2BlockInvocation (EXT)
+@implementation NSInvocation (BlockArguments)
 
 - (BOOL)setArgumentsFromArgumentList:(va_list)args
 {
@@ -22,7 +22,7 @@ typedef union { int i; } *empty_union_ptr_t;
     va_copy(cargs, args);
 
     NSMethodSignature *signature = [self methodSignature];
-    NSUInteger skip = 1;
+    NSUInteger skip = 2;
     NSUInteger count = [signature numberOfArguments];
 
     for (NSUInteger i = skip;i < count;++i) {
@@ -43,7 +43,7 @@ typedef union { int i; } *empty_union_ptr_t;
             case 'c':
             {
                 char val = (char)va_arg(cargs, int);
-                [self setArgument:&val atIndex:i-skip];
+                [self setArgument:&val atIndex:i];
             }
 
                 break;
@@ -51,7 +51,7 @@ typedef union { int i; } *empty_union_ptr_t;
             case 'i':
             {
                 int val = va_arg(cargs, int);
-                [self setArgument:&val atIndex:i-skip];
+                [self setArgument:&val atIndex:i];
             }
 
                 break;
@@ -59,7 +59,7 @@ typedef union { int i; } *empty_union_ptr_t;
             case 's':
             {
                 short val = (short)va_arg(cargs, int);
-                [self setArgument:&val atIndex:i-skip];
+                [self setArgument:&val atIndex:i];
             }
 
                 break;
@@ -67,7 +67,7 @@ typedef union { int i; } *empty_union_ptr_t;
             case 'l':
             {
                 long val = va_arg(cargs, long);
-                [self setArgument:&val atIndex:i-skip];
+                [self setArgument:&val atIndex:i];
             }
 
                 break;
@@ -75,7 +75,7 @@ typedef union { int i; } *empty_union_ptr_t;
             case 'q':
             {
                 long long val = va_arg(cargs, long long);
-                [self setArgument:&val atIndex:i-skip];
+                [self setArgument:&val atIndex:i];
             }
 
                 break;
@@ -83,7 +83,7 @@ typedef union { int i; } *empty_union_ptr_t;
             case 'C':
             {
                 unsigned char val = (unsigned char)va_arg(cargs, unsigned int);
-                [self setArgument:&val atIndex:i-skip];
+                [self setArgument:&val atIndex:i];
             }
 
                 break;
@@ -91,7 +91,7 @@ typedef union { int i; } *empty_union_ptr_t;
             case 'I':
             {
                 unsigned int val = va_arg(cargs, unsigned int);
-                [self setArgument:&val atIndex:i-skip];
+                [self setArgument:&val atIndex:i];
             }
 
                 break;
@@ -99,7 +99,7 @@ typedef union { int i; } *empty_union_ptr_t;
             case 'S':
             {
                 unsigned short val = (unsigned short)va_arg(cargs, unsigned int);
-                [self setArgument:&val atIndex:i-skip];
+                [self setArgument:&val atIndex:i];
             }
 
                 break;
@@ -107,7 +107,7 @@ typedef union { int i; } *empty_union_ptr_t;
             case 'L':
             {
                 unsigned long val = va_arg(cargs, unsigned long);
-                [self setArgument:&val atIndex:i-skip];
+                [self setArgument:&val atIndex:i];
             }
 
                 break;
@@ -115,7 +115,7 @@ typedef union { int i; } *empty_union_ptr_t;
             case 'Q':
             {
                 unsigned long long val = va_arg(cargs, unsigned long long);
-                [self setArgument:&val atIndex:i-skip];
+                [self setArgument:&val atIndex:i];
             }
 
                 break;
@@ -123,7 +123,7 @@ typedef union { int i; } *empty_union_ptr_t;
             case 'f':
             {
                 float val = (float)va_arg(cargs, double);
-                [self setArgument:&val atIndex:i-skip];
+                [self setArgument:&val atIndex:i];
             }
 
                 break;
@@ -131,7 +131,7 @@ typedef union { int i; } *empty_union_ptr_t;
             case 'd':
             {
                 double val = va_arg(cargs, double);
-                [self setArgument:&val atIndex:i-skip];
+                [self setArgument:&val atIndex:i];
             }
 
                 break;
@@ -139,7 +139,7 @@ typedef union { int i; } *empty_union_ptr_t;
             case 'B':
             {
                 _Bool val = (_Bool)va_arg(cargs, int);
-                [self setArgument:&val atIndex:i-skip];
+                [self setArgument:&val atIndex:i];
             }
 
                 break;
@@ -147,7 +147,7 @@ typedef union { int i; } *empty_union_ptr_t;
             case '*':
             {
                 char *val = va_arg(cargs, char *);
-                [self setArgument:&val atIndex:i-skip];
+                [self setArgument:&val atIndex:i];
             }
 
                 break;
@@ -155,7 +155,7 @@ typedef union { int i; } *empty_union_ptr_t;
             case '@':
             {
                 __unsafe_unretained id val = va_arg(cargs, id);
-                [self setArgument:&val atIndex:i-skip];
+                [self setArgument:&val atIndex:i];
 
                 if (type[1] == '?') {
                     // @? is undocumented, but apparently used to represent
@@ -171,7 +171,7 @@ typedef union { int i; } *empty_union_ptr_t;
             case '#':
             {
                 Class val = va_arg(cargs, Class);
-                [self setArgument:&val atIndex:i-skip];
+                [self setArgument:&val atIndex:i];
             }
 
                 break;
@@ -179,7 +179,7 @@ typedef union { int i; } *empty_union_ptr_t;
             case ':':
             {
                 SEL val = va_arg(cargs, SEL);
-                [self setArgument:&val atIndex:i-skip];
+                [self setArgument:&val atIndex:i];
             }
 
                 break;
@@ -210,7 +210,7 @@ typedef union { int i; } *empty_union_ptr_t;
                     case 'C':
                     {
                         char *val = va_arg(cargs, char *);
-                        [self setArgument:&val atIndex:i-skip];
+                        [self setArgument:&val atIndex:i];
                     }
 
                         break;
@@ -219,7 +219,7 @@ typedef union { int i; } *empty_union_ptr_t;
                     case 'I':
                     {
                         int *val = va_arg(cargs, int *);
-                        [self setArgument:&val atIndex:i-skip];
+                        [self setArgument:&val atIndex:i];
                     }
 
                         break;
@@ -228,7 +228,7 @@ typedef union { int i; } *empty_union_ptr_t;
                     case 'S':
                     {
                         short *val = va_arg(cargs, short *);
-                        [self setArgument:&val atIndex:i-skip];
+                        [self setArgument:&val atIndex:i];
                     }
 
                         break;
@@ -237,7 +237,7 @@ typedef union { int i; } *empty_union_ptr_t;
                     case 'L':
                     {
                         long *val = va_arg(cargs, long *);
-                        [self setArgument:&val atIndex:i-skip];
+                        [self setArgument:&val atIndex:i];
                     }
 
                         break;
@@ -246,7 +246,7 @@ typedef union { int i; } *empty_union_ptr_t;
                     case 'Q':
                     {
                         long long *val = va_arg(cargs, long long *);
-                        [self setArgument:&val atIndex:i-skip];
+                        [self setArgument:&val atIndex:i];
                     }
 
                         break;
@@ -254,7 +254,7 @@ typedef union { int i; } *empty_union_ptr_t;
                     case 'f':
                     {
                         float *val = va_arg(cargs, float *);
-                        [self setArgument:&val atIndex:i-skip];
+                        [self setArgument:&val atIndex:i];
                     }
 
                         break;
@@ -262,7 +262,7 @@ typedef union { int i; } *empty_union_ptr_t;
                     case 'd':
                     {
                         double *val = va_arg(cargs, double *);
-                        [self setArgument:&val atIndex:i-skip];
+                        [self setArgument:&val atIndex:i];
                     }
 
                         break;
@@ -270,7 +270,7 @@ typedef union { int i; } *empty_union_ptr_t;
                     case 'B':
                     {
                         _Bool *val = va_arg(cargs, _Bool *);
-                        [self setArgument:&val atIndex:i-skip];
+                        [self setArgument:&val atIndex:i];
                     }
 
                         break;
@@ -278,7 +278,7 @@ typedef union { int i; } *empty_union_ptr_t;
                     case 'v':
                     {
                         void *val = va_arg(cargs, void *);
-                        [self setArgument:&val atIndex:i-skip];
+                        [self setArgument:&val atIndex:i];
                     }
 
                         break;
@@ -290,7 +290,7 @@ typedef union { int i; } *empty_union_ptr_t;
                     case '[':
                     {
                         void **val = va_arg(cargs, void **);
-                        [self setArgument:&val atIndex:i-skip];
+                        [self setArgument:&val atIndex:i];
                     }
 
                         break;
@@ -298,7 +298,7 @@ typedef union { int i; } *empty_union_ptr_t;
                     case ':':
                     {
                         SEL *val = va_arg(cargs, SEL *);
-                        [self setArgument:&val atIndex:i-skip];
+                        [self setArgument:&val atIndex:i];
                     }
 
                         break;
@@ -306,7 +306,7 @@ typedef union { int i; } *empty_union_ptr_t;
                     case '{':
                     {
                         empty_struct_ptr_t val = va_arg(cargs, empty_struct_ptr_t);
-                        [self setArgument:&val atIndex:i-skip];
+                        [self setArgument:&val atIndex:i];
                     }
 
                         break;
@@ -314,7 +314,7 @@ typedef union { int i; } *empty_union_ptr_t;
                     case '(':
                     {
                         empty_union_ptr_t val = va_arg(cargs, empty_union_ptr_t);
-                        [self setArgument:&val atIndex:i-skip];
+                        [self setArgument:&val atIndex:i];
                     }
 
                         break;
@@ -327,7 +327,7 @@ typedef union { int i; } *empty_union_ptr_t;
                         // a pointer-to-something gives us a good chance of not
                         // causing alignment or size problems
                         IMP *ptr = va_arg(cargs, IMP *);
-                        [self setArgument:&ptr atIndex:i-skip];
+                        [self setArgument:&ptr atIndex:i];
                     }
                         
                         break;
@@ -348,7 +348,7 @@ typedef union { int i; } *empty_union_ptr_t;
                 NSLog(@"Assuming method argument type code \"%s\" is a function pointer", type);
                 
                 IMP ptr = va_arg(cargs, IMP);
-                [self setArgument:&ptr atIndex:i-skip];
+                [self setArgument:&ptr atIndex:i];
             }
                 
                 break;
@@ -364,4 +364,5 @@ typedef union { int i; } *empty_union_ptr_t;
     
     return YES;
 }
+
 @end

@@ -1,5 +1,5 @@
 //
-//  Emitter-Prefix.pch
+//  Emitter+Blocks.m
 //  Emitter
 //
 //  Created by Nuno Sousa on 2/1/14.
@@ -8,12 +8,11 @@
 
 #import <objc/runtime.h>
 #import <BlocksKit/A2BlockInvocation.h>
-#import <SLObjectiveCRuntimeAdditions/SLBlockDescription.h>
 
-#import "A2BlockInvocation+EXT.h"
-#import "Emitter.h"
+#import "NSInvocation+BlockArguments.h"
+#import "Emitter+Blocks.h"
 
-@implementation NSObject(Emitter)
+@implementation NSObject(EmitterBlocks)
 
 - (NSMutableDictionary *)eventListeners
 {
@@ -93,16 +92,17 @@
     NSDictionary *listeners = [self.eventListeners[event] copy];
 
     for (id listener in listeners) {
-        NSMethodSignature *signature = [[[SLBlockDescription alloc] initWithBlock:listener] blockSignature];
-        A2BlockInvocation *blockInvocation = [[A2BlockInvocation alloc] initWithBlock:listener methodSignature:signature];
+        A2BlockInvocation *blockInvocation = [[A2BlockInvocation alloc] initWithBlock:listener];
+        NSMethodSignature *signature = blockInvocation.methodSignature;
+        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
 
         for (int i=0; i < MIN(signature.numberOfArguments - 1, args.count); i++) {
             id arg = args[i];
 
-            [blockInvocation setArgument:&arg atIndex:i];
+            [invocation setArgument:&arg atIndex:i + 2];
         }
 
-        [blockInvocation invoke];
+        [blockInvocation invokeWithInvocation:invocation];
 
         // Remove events that are only scheduled to execute once
         if (YES == [listeners[listener] boolValue]) {
@@ -116,11 +116,12 @@
     NSDictionary *listeners = [self.eventListeners[event] copy];
 
     for (id listener in listeners) {
-        NSMethodSignature *signature = [[[SLBlockDescription alloc] initWithBlock:listener] blockSignature];
-        A2BlockInvocation *blockInvocation = [[A2BlockInvocation alloc] initWithBlock:listener methodSignature:signature];
+        A2BlockInvocation *blockInvocation = [[A2BlockInvocation alloc] initWithBlock:listener];
+        NSMethodSignature *signature = blockInvocation.methodSignature;
+        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
 
-        [blockInvocation setArgumentsFromArgumentList:args];
-        [blockInvocation invoke];
+        [invocation setArgumentsFromArgumentList:args];
+        [blockInvocation invokeWithInvocation:invocation];
 
         // Remove events that are only scheduled to execute once
         if (YES == [listeners[listener] boolValue]) {

@@ -1,5 +1,5 @@
 //
-//  Emitter-Prefix.pch
+//  Emitter+BlocksTests.m
 //  Emitter
 //
 //  Created by Nuno Sousa on 2/1/14.
@@ -8,15 +8,15 @@
 
 #import "Emitter.h"
 
-SpecBegin(Emitter)
+SpecBegin(EmitterBlocks)
 
 __block NSObject *emitter;
 
+beforeEach(^{
+    emitter = [[NSObject alloc] init];
+});
+
 describe(@"emit:", ^{
-    beforeEach(^{
-        emitter = [[NSObject alloc] init];
-    });
-    
     it(@"notifies listener", ^AsyncBlock {
         [emitter on:@"key" listener:^{
             done();
@@ -89,7 +89,7 @@ describe(@"emit:", ^{
             };
         }];
 
-        for(int i=0; i < expected; i++) {
+        for (int i=0; i < expected; i++) {
             [emitter emit:@"key", param, i];
         }
     });
@@ -152,7 +152,9 @@ describe(@"emit:", ^{
 
         [emitter emit:@"key" args:@[param1, param2]];
     });
+});
 
+describe(@"removeListener:", ^{
     it(@"removes listener", ^{
         id listener = ^{
             XCTFail(@"listener should not fire");
