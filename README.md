@@ -8,13 +8,13 @@ The library adds a category to NSObject that allows any object to `emit` or `lis
 
 Add it as a Cocoapods dependency to your Podfile:
 
-	pod 'Emitter', '~> 0.0.5'
+	pod 'Emitter'
 
 ## Use it
 
 ### Quick Start
 
-Register event listener on any object:
+Register an event listener on any object:
 
 ```objective-c
 #import <EventEmitter/EventEmitter.h>
@@ -30,13 +30,13 @@ NSObject *server = [[NSObject alloc] init];
 }];
 ```
 
-And later fire an event to the same object:
+Later, fire an event to the same object:
 
 ```objective-c
 [server emit:@"connection", stream];
 
-[server emit:@"event" @{
-	@"type": @"somethinghappend",
+[server emit:@"event", @{
+	@"type": @"somethinghappened",
 	@"another key": @"another value",
 }];
 ```
@@ -64,6 +64,23 @@ Emit events with:
 
 ```objective-c
 - (void)emit:(NSString *)event, ...;
+```
+
+### Selector/Target syntax
+
+It is also possible to listen for events with a selector and target object using:
+
+```objective-c
+- (void)addListener(NSString *)event selector:(SEL)selector target:(id)target;
+- (void)on:(NSString *)event selector:(SEL)selector target:(id)target;
+- (void)once:(NSString *)event selector:(SEL)selector target:(id)target;
+```
+
+Stop listening with:
+
+```objective-c
+- (void)removeListener:(NSString *)event selector:(SEL)selector target:(id)target;
+- (void)removeAllListeners:(NSString *)event;
 ```
 
 ### Dynamic block invocation
