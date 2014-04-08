@@ -1,26 +1,22 @@
 PODS:
-  - BlocksKit/DynamicDelegate (2.2.0):
-    - BlocksKit/MiniFFI
+  - BlocksKit/DynamicDelegate (2.2.2)
   - Expecta (0.3.0)
   - OCHamcrest (3.0.1)
-  - OCMockito (1.1.0):
+  - OCMockito (1.2.0):
     - OCHamcrest (~> 3.0)
-  - SLObjectiveCRuntimeAdditions (1.1.2)
   - Specta (0.2.1)
 
 DEPENDENCIES:
   - BlocksKit/DynamicDelegate
   - Expecta
   - OCMockito
-  - SLObjectiveCRuntimeAdditions
   - Specta
 
 SPEC CHECKSUMS:
-  BlocksKit: 1b106f407a11997fd79e1da31453758e51277613
+  BlocksKit: 125e4e69a62e3b85bacc5175737dae000b00b9fb
   Expecta: 322f1dc42610106a5ba9871b4924cf1635d80833
   OCHamcrest: 782c52ae8c673e5d6060a65005cfd26d20d519ba
-  OCMockito: 317fa0cf75c9b0d73d2be335789c556537be7fd2
-  SLObjectiveCRuntimeAdditions: 3fa6a14b9d09ed386180b19de1267bb1cd8a9aad
+  OCMockito: 050fca9528760faa8b5fafc82faad9d54f0864c0
   Specta: 2d06220591110c6d9757d8be8ecf8e63aa40dc2a
 
-COCOAPODS: 0.29.0
+COCOAPODS: 0.31.1

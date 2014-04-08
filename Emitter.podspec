@@ -12,5 +12,4 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.8'
 
   s.dependency 'BlocksKit/DynamicDelegate'
-  s.dependency 'SLObjectiveCRuntimeAdditions'
 end
