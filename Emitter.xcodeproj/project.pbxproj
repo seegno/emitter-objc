@@ -54,12 +54,12 @@
 		E5682C9918B52D6D00F5D583 /* NSInvocation+BlockArguments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSInvocation+BlockArguments.h"; sourceTree = "<group>"; };
 		E5682C9A18B52D6D00F5D583 /* NSInvocation+BlockArguments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+BlockArguments.m"; sourceTree = "<group>"; };
 		E578156018F3FA7400698CFA /* Emitter+SelectorsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Emitter+SelectorsTests.m"; sourceTree = "<group>"; };
+		E58C3F7A19869D5400461CE7 /* Emitter.podspec.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Emitter.podspec.json; sourceTree = "<group>"; };
 		E5A9452D18F2AB2F0076DCE8 /* Emitter+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Emitter+Blocks.h"; sourceTree = "<group>"; };
 		E5A9452E18F2AB2F0076DCE8 /* Emitter+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Emitter+Blocks.m"; sourceTree = "<group>"; };
 		E5A9452F18F2AB2F0076DCE8 /* Emitter+Selectors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Emitter+Selectors.h"; sourceTree = "<group>"; };
 		E5A9453018F2AB2F0076DCE8 /* Emitter+Selectors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Emitter+Selectors.m"; sourceTree = "<group>"; };
 		E5A9453518F2AB330076DCE8 /* Emitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Emitter.h; sourceTree = "<group>"; };
-		E5C3F24218AE6D7300530749 /* Emitter.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Emitter.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,7 +94,7 @@
 				59684AE715F9DF500063CF5E /* EmitterTests */,
 				59684ACE15F9DF500063CF5E /* Frameworks */,
 				59684ACD15F9DF500063CF5E /* Products */,
-				E5C3F24218AE6D7300530749 /* Emitter.podspec */,
+				E58C3F7A19869D5400461CE7 /* Emitter.podspec.json */,
 				1F0969A822004F25A8D2CE38 /* Pods.xcconfig */,
 				33715D2D81AB49FB8082B0CE /* Pods-EmitterTests.xcconfig */,
 			);
