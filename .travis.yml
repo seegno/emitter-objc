@@ -3,8 +3,5 @@ xcode_workspace: Emitter.xcworkspace
 xcode_scheme: Emitter
 before_install:
   - gem install cocoapods 
-before_script:
-  - brew update
-  - brew upgrade xctool
 notifications:
   slack: seegno:AoXFWrkPDMfOuaxvckPs7hc0
