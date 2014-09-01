@@ -49,7 +49,7 @@
             [invocation setArgument:&(args[i-2]) atIndex:i];
         }
 
-        [invocation invoke];
+        [invocation performSelectorOnMainThread:@selector(invoke) withObject:nil waitUntilDone:YES];
     };
 
     if (! self.eventSelectors[event]) {

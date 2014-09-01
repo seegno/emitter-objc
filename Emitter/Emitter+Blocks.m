@@ -102,7 +102,7 @@
             [invocation setArgument:&arg atIndex:i+2];
         }
 
-        [blockInvocation invokeWithInvocation:invocation];
+        [blockInvocation performSelectorOnMainThread:@selector(invokeWithInvocation:) withObject:invocation waitUntilDone:YES];
 
         // Remove events that are only scheduled to execute once
         if (YES == [listeners[listener] boolValue]) {
@@ -121,7 +121,8 @@
         NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
 
         [invocation setArgumentsFromArgumentList:args];
-        [blockInvocation invokeWithInvocation:invocation];
+
+        [blockInvocation performSelectorOnMainThread:@selector(invokeWithInvocation:) withObject:invocation waitUntilDone:YES];
 
         // Remove events that are only scheduled to execute once
         if (YES == [listeners[listener] boolValue]) {
