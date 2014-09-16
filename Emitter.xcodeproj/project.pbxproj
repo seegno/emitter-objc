@@ -13,7 +13,7 @@
 		59684AE615F9DF500063CF5E /* Emitter.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 59684ACC15F9DF500063CF5E /* Emitter.dylib */; };
 		59684AEF15F9DF500063CF5E /* Emitter+BlocksTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 59684AEE15F9DF500063CF5E /* Emitter+BlocksTests.m */; };
 		59ED69701616F891009C400B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 59ED696F1616F891009C400B /* README.md */; };
-		64634FCB189D508900B2901F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64634FCA189D508900B2901F /* XCTest.framework */; };
+		643174AA19C84C3C00F609B1 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 643174A919C84C3C00F609B1 /* XCTest.framework */; };
 		CB4919C50D22474F8B4346B1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B6A8F661D74DED8997F8F8 /* libPods.a */; };
 		E5682C9B18B52D6D00F5D583 /* NSInvocation+BlockArguments.h in Headers */ = {isa = PBXBuildFile; fileRef = E5682C9918B52D6D00F5D583 /* NSInvocation+BlockArguments.h */; };
 		E5682C9C18B52D6D00F5D583 /* NSInvocation+BlockArguments.m in Sources */ = {isa = PBXBuildFile; fileRef = E5682C9A18B52D6D00F5D583 /* NSInvocation+BlockArguments.m */; };
@@ -46,6 +46,7 @@
 		59684AE015F9DF500063CF5E /* EmitterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EmitterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		59684AEE15F9DF500063CF5E /* Emitter+BlocksTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Emitter+BlocksTests.m"; sourceTree = "<group>"; };
 		59ED696F1616F891009C400B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		643174A919C84C3C00F609B1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		64634FC9189D44E700B2901F /* Emitter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Emitter-Prefix.pch"; sourceTree = "<group>"; };
 		64634FCA189D508900B2901F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		6D30EA9E9FE14528BDFB2D2E /* libPods-EmitterTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EmitterTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,7 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64634FCB189D508900B2901F /* XCTest.framework in Frameworks */,
+				643174AA19C84C3C00F609B1 /* XCTest.framework in Frameworks */,
 				59684AE315F9DF500063CF5E /* Cocoa.framework in Frameworks */,
 				59684AE615F9DF500063CF5E /* Emitter.dylib in Frameworks */,
 				51E206F1FF4145038F60AAF1 /* libPods-EmitterTests.a in Frameworks */,
@@ -112,6 +113,7 @@
 		59684ACE15F9DF500063CF5E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				643174A919C84C3C00F609B1 /* XCTest.framework */,
 				64634FCA189D508900B2901F /* XCTest.framework */,
 				59684ACF15F9DF500063CF5E /* Cocoa.framework */,
 				59684AD115F9DF500063CF5E /* Other Frameworks */,
@@ -218,7 +220,7 @@
 			name = EmitterTests;
 			productName = EventEmitterTests;
 			productReference = 59684AE015F9DF500063CF5E /* EmitterTests.xctest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -408,6 +410,11 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
 				PRODUCT_NAME = Emitter;
 			};
 			name = Debug;
@@ -419,6 +426,11 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
 				PRODUCT_NAME = Emitter;
 			};
 			name = Release;
@@ -428,7 +440,11 @@
 			baseConfigurationReference = 33715D2D81AB49FB8082B0CE /* Pods-EmitterTests.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+					"$(DEVELOPER_DIR)/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/EmitterTests/Emitter-Prefix.pch";
 				OTHER_LDFLAGS = (
@@ -449,7 +465,11 @@
 			baseConfigurationReference = 33715D2D81AB49FB8082B0CE /* Pods-EmitterTests.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+					"$(DEVELOPER_DIR)/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/EmitterTests/Emitter-Prefix.pch";
 				OTHER_LDFLAGS = (
