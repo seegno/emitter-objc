@@ -157,7 +157,7 @@ describe(@"emit:", ^{
 describe(@"removeListener:", ^{
     it(@"removes listener", ^{
         id listener = ^{
-            XCTFail(@"listener should not fire");
+            NSAssert(NO, @"listener should not fire");
         };
         
         [emitter on:@"key" listener:listener];
@@ -169,7 +169,7 @@ describe(@"removeListener:", ^{
 
     it(@"removes listener while iterating listeners", ^{
         id listener = ^{
-            XCTFail(@"listener should not fire");
+            NSAssert(NO, @"listener should not fire");
         };
 
         [emitter on:@"key" listener:listener];
@@ -184,7 +184,7 @@ describe(@"removeListener:", ^{
     
     it(@"removes all listeners for an event", ^{
         id listener = ^{
-            XCTFail(@"listener should not fire");
+            NSAssert(NO, @"listener should not fire");
         };
         
         [emitter on:@"key" listener:listener];
@@ -196,11 +196,11 @@ describe(@"removeListener:", ^{
 
     it(@"removes all listeners for multiple events", ^{
         [emitter on:@"key" listener:^{
-            XCTFail(@"listener should not fire");
+            NSAssert(NO, @"listener should not fire");
         }];
 
         [emitter on:@"key" listener:^{
-            XCTFail(@"listener should not fire");
+            NSAssert(NO, @"listener should not fire");
         }];
 
         [emitter removeAllListeners:@"key"];
@@ -210,11 +210,11 @@ describe(@"removeListener:", ^{
 
     it(@"removes all listeners", ^{
         [emitter on:@"key" listener:^{
-            XCTFail(@"listener should not fire");
+            NSAssert(NO, @"listener should not fire");
         }];
 
         [emitter on:@"key" listener:^{
-            XCTFail(@"listener should not fire");
+            NSAssert(NO, @"listener should not fire");
         }];
 
         [emitter removeAllListeners];

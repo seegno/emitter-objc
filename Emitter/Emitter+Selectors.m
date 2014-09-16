@@ -29,13 +29,22 @@
     }
 }
 
-- (void)addListener:(id)event selector:(SEL)selector target:(id)target once:(BOOL)once
+- (void)addListener:(id)event selector:(SEL)selector target:(__weak id)target once:(BOOL)once
 {
     if ([self selectorWithEvent:event selector:selector target:target]) {
         return;
     }
 
-    id block = ^(void *first, void *second, void *third, void *fourth, void *fifth, void *sixth, void *seventh, void *eighth, void *nineth, void *tenth) {
+    id block;
+    id __weak __block weakBlock;
+
+    weakBlock = block = ^(void *first, void *second, void *third, void *fourth, void *fifth, void *sixth, void *seventh, void *eighth, void *nineth, void *tenth) {
+        if (nil == target) {
+            [self removeListener:event listener:weakBlock];
+
+            return;
+        }
+
         NSMethodSignature *signature = [target methodSignatureForSelector:selector];
         NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
 
@@ -58,7 +67,7 @@
 
     [self.eventSelectors[event] addObject:@{
         @"selector": NSStringFromSelector(selector),
-        @"target": target,
+        @"target": [NSValue valueWithNonretainedObject:target],
         @"block": block
     }];
 
@@ -69,22 +78,22 @@
     }
 }
 
-- (void)addListener:(id)event selector:(SEL)selector target:(id)target
+- (void)addListener:(id)event selector:(SEL)selector target:(__weak id)target
 {
     [self addListener:event selector:selector target:target once:NO];
 }
 
-- (void)on:(id)event selector:(SEL)selector target:(id)target
+- (void)on:(id)event selector:(SEL)selector target:(__weak id)target
 {
     [self addListener:event selector:selector target:target once:NO];
 }
 
-- (void)once:(id)event selector:(SEL)selector target:(id)target
+- (void)once:(id)event selector:(SEL)selector target:(__weak id)target
 {
     [self addListener:event selector:selector target:target once:YES];
 }
 
-- (void)removeListener:(id)event selector:(SEL)selector target:(id)target
+- (void)removeListener:(id)event selector:(SEL)selector target:(__weak id)target
 {
     NSDictionary *listener = [self selectorWithEvent:event selector:selector target:target];
 
@@ -100,13 +109,16 @@
 - (NSDictionary *)selectorWithEvent:(id)event selector:(SEL)selector target:(id)target
 {
     NSUInteger index = [self.eventSelectors[event] indexOfObjectPassingTest:^BOOL(NSDictionary *obj, NSUInteger idx, BOOL *stop) {
-        return target == obj[@"target"] && [NSStringFromSelector(selector) isEqualToString:obj[@"selector"]];
-    }];
+        BOOL isSameTarget = [[NSValue valueWithNonretainedObject:target] isEqualToValue:obj[@"target"]];
+        BOOL isSameSelector = [NSStringFromSelector(selector) isEqualToString:obj[@"selector"]];
 
+        return isSameTarget && isSameSelector;
+    }];
+    
     if (index == NSNotFound) {
         return nil;
     }
-
+    
     return self.eventSelectors[event][index];
 }
 

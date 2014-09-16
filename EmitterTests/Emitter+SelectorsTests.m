@@ -36,8 +36,28 @@ beforeEach(^{
     target2 = mock(TestObject.class);
 });
 
+describe(@"on:", ^{
+    it(@"does not retain the `target`", ^{
+        expect(CFGetRetainCount((__bridge CFTypeRef)target1)).to.equal(1);
+
+        [emitter on:@"key" selector:@selector(listener) target:target1];
+
+        expect(CFGetRetainCount((__bridge CFTypeRef)target1)).to.equal(1);
+    });
+});
+
 describe(@"emit:", ^{
-    it(@"notifies selector", ^ {
+    it(@"releases the listener if the `target` is nil", ^{
+        expect(CFGetRetainCount((__bridge CFTypeRef)target1)).to.equal(1);
+
+        [emitter on:@"key" selector:@selector(listener) target:target1];
+
+        target1 = nil;
+
+        [emitter emit:@"key"];
+    });
+
+    it(@"notifies selector", ^{
         [emitter on:@"key" selector:@selector(listener) target:target1];
         
         [emitter emit:@"key"];
@@ -118,6 +138,15 @@ describe(@"emit:", ^{
 });
 
 describe(@"removeListener:", ^{
+    it(@"does not retain the `target`", ^{
+        expect(CFGetRetainCount((__bridge CFTypeRef)target1)).to.equal(1);
+
+        [emitter on:@"key" selector:@selector(listener) target:target1];
+        [emitter removeListener:@"key" selector:@selector(listener) target:target1];
+
+        expect(CFGetRetainCount((__bridge CFTypeRef)target1)).to.equal(1);
+    });
+
     it(@"removes listener", ^{
         [emitter on:@"key" selector:@selector(listener) target:target1];
         
