@@ -1,6 +1,6 @@
 {
   "name": "Emitter",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "summary": "An event emitter implementation for Objective-C with dynamic block invocation based on the node.js EventEmitter API.",
   "homepage": "https://github.com/seegno/emitter-objc",
   "authors": "Seegno",
@@ -10,7 +10,7 @@
   },
   "source": {
     "git": "https://github.com/seegno/emitter-objc.git",
-    "tag": "0.0.8"
+    "tag": "0.0.9"
   },
   "source_files": "Emitter/*.{h,m}",
   "requires_arc": true,
