@@ -58,7 +58,7 @@
             [invocation setArgument:&(args[i-2]) atIndex:i];
         }
 
-        [invocation performSelectorOnMainThread:@selector(invoke) withObject:nil waitUntilDone:YES];
+        [invocation invoke];
     };
 
     if (! self.eventSelectors[event]) {

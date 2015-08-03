@@ -102,7 +102,7 @@
             [invocation setArgument:&arg atIndex:i+2];
         }
 
-        [blockInvocation performSelectorOnMainThread:@selector(invokeWithInvocation:) withObject:invocation waitUntilDone:YES];
+        [blockInvocation invokeWithInvocation:invocation];
 
         // Remove events that are only scheduled to execute once
         if (YES == [listeners[listener] boolValue]) {
@@ -122,7 +122,7 @@
 
         [invocation setArgumentsFromArgumentList:args];
 
-        [blockInvocation performSelectorOnMainThread:@selector(invokeWithInvocation:) withObject:invocation waitUntilDone:YES];
+        [blockInvocation invokeWithInvocation:invocation];
 
         // Remove events that are only scheduled to execute once
         if (YES == [listeners[listener] boolValue]) {
